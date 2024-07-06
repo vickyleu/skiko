@@ -81,6 +81,7 @@ SCRIPT_DIR="$(pwd)"
 cd skia-pack
 #[ -d "skia" ] && echo "skip cript/checkout.py, because directory skia-pack/skia already exists"
 #[ ! -d "skia" ] && python3 script/checkout.py --version "$SKIA_VERSION"
+#python3 script/checkout.py --version "$SKIA_VERSION"
 for skikoMachine in ${skikoMachines[@]}; do
   python3 script/build.py --target "$SKIA_TARGET" --machine "$skikoMachine" --build-type "$skikoBuildType"
   python3 script/archive.py --version "$SKIA_VERSION" --target "$SKIA_TARGET" --machine "$skikoMachine" --build-type "$skikoBuildType"
